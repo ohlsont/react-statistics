@@ -10,6 +10,8 @@
     "npm": ">=3"
   },
   "scripts": {
+    "deploy": "gh-pages-deploy",
+    "clean-source": "rimraf README.md src webroot package.json",
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
     "analyze": "node ./internals/scripts/analyze.js",
@@ -36,7 +38,7 @@
     "lint:js": "npm run lint:eslint -- . ",
     "lint:css": "stylelint ./app/**/*.css",
     "lint:staged": "lint-staged",
-    "pretest": "npm run test:clean && npm run lint",
+    "pretest": "npm run test:clean",
     "test:clean": "rimraf ./coverage",
     "test": "cross-env NODE_ENV=test karma start internals/testing/karma.conf.js --single-run",
     "test:watch": "npm run test -- --auto-watch --no-single-run",
@@ -68,6 +70,9 @@
         ]
       }
     }
+  },
+  "gh-pages-deploy": {
+    "staticpath": "build"
   },
   "eslintConfig": {
     "parser": "babel-eslint",
@@ -181,6 +186,7 @@
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.9.0",
     "gh-pages": "^0.11.0",
+    "gh-pages-deploy": "^0.4.2",
     "html-loader": "0.4.3",
     "html-webpack-plugin": "2.22.0",
     "image-webpack-loader": "2.0.0",
