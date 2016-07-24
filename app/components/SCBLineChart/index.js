@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {Line} from "react-chartjs";
 
 class SCBLineChart extends React.Component {
-  static baseUrl = "http://api.scb.se/OV0104/v1/doris/sv/ssd";
+  static baseUrl = "https://api.scb.se/OV0104/v1/doris/sv/ssd";
   static propTypes = {
     url: PropTypes.string,
   };
