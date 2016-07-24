@@ -18,7 +18,7 @@ export default function createRoutes() {
 
   return [
     {
-      path: '/',
+      path: '*',
       name: 'home',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
@@ -34,7 +34,7 @@ export default function createRoutes() {
         importModules.catch(errorLoading);
       },
     }, {
-      path: '*',
+      path: '/notfound',
       name: 'notfound',
       getComponent(nextState, cb) {
         System.import('containers/NotFoundPage')
